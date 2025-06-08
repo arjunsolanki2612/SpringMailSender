@@ -10,7 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")       // Sare endpoints
-                .allowedOrigins("http://localhost:3000")     // Kisi bhi domain se call allow
+                .allowedOrigins("*")     // Kisi bhi domain se call allow
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*");
     }
