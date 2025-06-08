@@ -30,7 +30,6 @@ public class EmailService {
         // SimpleMailMessage message = new SimpleMailMessage(); --> it will create an empty email message object
         // like a template that has to, subject, body but it is blank. it only sends plain text
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("arjunsolanki2148@gmail.com");
         message.setTo(to);
         message.setSubject(subject);
         message.setText(body);
@@ -47,7 +46,6 @@ public class EmailService {
         // this helper object will help us to set the content type and setting the constructor to true means that
         // the email will be sent in html format
         MimeMessageHelper helper = new MimeMessageHelper(message,true);
-        helper.setFrom("arjunsolanki2148@gmail.com"); // it is optional if we don't want to set the from application.properties
         helper.setTo(to);
         helper.setSubject(subject);
         helper.setText(body, true);
@@ -57,7 +55,7 @@ public class EmailService {
     public void sendMailWithAttachment(String to, String subject, String body, File file) throws MessagingException {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
-        helper.setFrom("arjunsolanki2148@gmail.com");
+
         helper.setTo(to);
         helper.setSubject(subject);
         helper.setText(body, true);
@@ -82,7 +80,7 @@ public class EmailService {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-        helper.setFrom("arjunsolanki2148@gmail.com");
+
         if (emailWithCCorBCC.getSubject() != null)
             helper.setSubject(emailWithCCorBCC.getSubject());
 
